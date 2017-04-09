@@ -10,7 +10,7 @@ tags:
 
 <!--more-->
 
-### 正常的开发流程命令
+## 正常的开发流程命令
 
 1. 首先进入项目的主分支
 
@@ -29,8 +29,9 @@ Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 
 
 5. 然后在将自己的项目分支同步项目主分支（我们项目分支为develop分支） 
-
-   ```git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop```
+```
+git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
+```
 
 6. 每次提交代码时候，需要先同步项目主分支代码
 * `git status`               是哪些文件有所修改
@@ -39,12 +40,13 @@ Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 * `git commit -a`            提交所有修改的代码 ，加注释是这样  `git commit -a -m "这里是注释的内容"`
 * `git push origin develop`  提交代码,这里的提交只是提交到了项目的develop分支上面，还没提交到master上面
 
-### 若代码有冲突，可以这样解决
+## 若代码有冲突，可以这样解决
 
 1. `git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop`     先同步一下会出现以上的错误
 2. pull会使用git merge导致冲突，需要将冲突的文件resolve掉   `git add -u`,
 3. 在项目中看看哪些代码是对方改的，哪些代码是自己修改的，在合并成一份最新的代码
 4. `git commit` 之后才能成功
+
 ## 添加修改
 1. 添加文件到暂缓区：
 * `git add -A .`一次添加所有改变的文件
@@ -57,6 +59,7 @@ Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 * `git commit -a -m "这里是注释"` 除了将暂存区里的文件提交外，还提交 Changes bu not updated 中的文件。
 * `git commit --amend`有时候我们会发现有几个文件漏了提交或者想修改一下提交信息，又或者忘记使用 -a 选项导致一些文件没有被提交，我们希望对上一次提交进行修改，或者说取消上一次提交，这时候我们需要使用 --amend 选项。
 * `git commit --amend -a`用来当我们发现在提交时忘记使用 -a 选项，导致 Changes bu not updated 中的内容没有被提交
+
 ## 撤销修改
 
 ### 1.撤销commit
@@ -83,6 +86,29 @@ Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 * 创建+切换分支：`git checkout –b name`
 * 合并某分支到当前分支：`git merge name`
 * 删除分支：`git branch –d name`
+
+## github提交时想忽略某些文件
+比如我提交的时候，不想提交`node_modules`这个文件夹或者想忽略掉更多的文件夹，可以在github上或者在你的文件中添加`.gitignore`这个文件
+`.gitignore`里面的内容参考如下：
+```bash
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+```
+
+## 本地文件想提交到远程
+1. 如果本地没有初始化git,在本地执行 `git init`
+2. `git add -A .`添加所有文件到暂缓区
+3. `git commit -a -m "添加所有文件"`
+4. `git remote add origin https://github.com/xianyulaodi/blogBackups.git`。注意需要将origin后面换成自己的Git地址。
+5. 将本地仓库推送到远程仓库`git push -u origin master`第一次需要这样，以后只要执行`git push origin master`
+6. **关键！！**在执行该命令时有时候会出错，原因是远程的文件未同步下来。此时可以先执行：`git pull --rebase origin master`将远程文件同步下来。然后在执行推送即可。
+  完成后在后续的推送文件到远程仓库中可直接执行`git push origin master`
+可以看看[这里](http://blog.sina.com.cn/s/blog_6cf7405b0102w5f9.html)
 
 ## git常用命令
 * 创建一个空目录 XX指目录名` mkdir XX `
