@@ -1,3 +1,0 @@
-# 上传的时候忽略掉这两个文件夹
-.deploy_git/
-node_modules/
