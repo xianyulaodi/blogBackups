@@ -144,7 +144,10 @@ public/
 * 把master分支推送到远程库对应的远程分支上 `git push origin master` 
 * 把分支推送到远程的分支`git push origin develop`
 
-    
+## 常见问题
+
+1、![](http://tutorialspots.com/wp-content/uploads/2016/10/Another-git-process-seems-to-be-running-in-this-repository.jpg)   
+解决方法：执行`rm .git/index.lock`
 
      
 
