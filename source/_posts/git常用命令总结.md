@@ -12,33 +12,35 @@ tags:
 
 ## 正常的开发流程命令
 
-1. 首先进入项目的主分支
-
-2. Fork一份工程，当做自己的项目管理分支
-&ensp;&ensp;&ensp;Fork的作用:
-&ensp;&ensp;&ensp;相当于你在原项目的主分支上又建立了一个分支，你可以在该分支上任意修改，如果想将你的修改合并到原项目中时，可以pull request，这样原项目的作者就可以将你修改的东西合并到原项目的主分支上去，这样你就为开源项目贡献了代码，开源项目就会在大家共同的努力下不断壮大和完善。
-
-3. 在电脑上创建一个文件夹，先Clone一份自己工程的项目分支(xxx屏蔽公司信息)
+1. 在电脑上创建一个文件夹，先Clone一份自己工程的项目分支(xxx屏蔽公司信息)
 ```
 Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 ```
 
-4. 进入项目的二级目录进入git客户端，确认要pull分支
+2. 进入项目目录，创建分支
       `git branch `                看看当前的分支
-      `git checkout -b develop`    切换到develop分支，因为我要pull拉去develop分支上的项目
+      `git checkout -b develop`    切换到develop分支.
 
+3. 在自己的分支上进行代码的修改，修改好后，可以提交到远程分支上,提交方法看步骤4
 
-5. 然后在将自己的项目分支同步项目主分支（我们项目分支为develop分支） 
+4. 每次提交代码时候，需要先同步项目主分支代码
+* `git status`               是哪些文件有所修改
+* `git diff`                 可以查询所修改的代码(`git diff 文件名`可以查看指定文件修改的内容)
+* `git add -A .`             添加所有文件到暂缓区(`git add 文件名`文添加指定的文件)
+* `git commit -a -m "这里是注释的内容"`    提交所有修改的代码到当前分支上
+* `git push origin develop`  提交代码,这里的提交只是提交到了项目的develop分支上面，还没提交到master上面
+
+5. 发布测试的时候可能用的是分支的代码，测试完了，没问题，要上线了，这时候需要将代码merge到主分支上
+
+6. 首先需要切换到主分支master上`git checkout master`,然后合并分支`git merge name`这里的name为分支名字。
+
+7. 删除分支`git branch -d name`,然后推送到远程master `git push origin master`;
+
+* 有时候可能会是在别人的分支上进行代码的修改，此时，步骤3之后插多一个步骤：
+将自己的项目分支同步项目主分支（我们项目分支为develop分支） 
 ```
 git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 ```
-
-6. 每次提交代码时候，需要先同步项目主分支代码
-* `git status`               是哪些文件有所修改
-* `git diff`                 可以查询所修改的代码
-* `git add -A `              增加自己所做的修改
-* `git commit -a`            提交所有修改的代码 ，加注释是这样  `git commit -a -m "这里是注释的内容"`
-* `git push origin develop`  提交代码,这里的提交只是提交到了项目的develop分支上面，还没提交到master上面
 
 ## 若代码有冲突，可以这样解决
 
@@ -60,9 +62,10 @@ git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 * `git commit --amend`有时候我们会发现有几个文件漏了提交或者想修改一下提交信息，又或者忘记使用 -a 选项导致一些文件没有被提交，我们希望对上一次提交进行修改，或者说取消上一次提交，这时候我们需要使用 --amend 选项。
 * `git commit --amend -a`用来当我们发现在提交时忘记使用 -a 选项，导致 Changes bu not updated 中的内容没有被提交
 
+
 ## 撤销修改
 
-### 1.撤销commit
+#### 1.撤销commit
 方法1:
 &ensp;&ensp;执行`git log`查看 commit日志，然后`git reset --hard commit_id `commit_id是控制台上的hash值
 方法2: 
@@ -72,12 +75,15 @@ git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 &ensp;&ensp;`git checkout -- .`撤销对所有文件的修改
 
 ！！注意： 撤销之后，由于本地版本低于线上版本，想要提交代码，只能强行提交，覆盖线上，可以使用下面的命令：`git push -f origin 分支名`
-### 2.恢复到某一版本
+
+#### 2.恢复到某一版本
 现在我又发觉我最新的版本是没错的，我不想撤销了，我要回到最新版本，两步:
-`git reflog`查看历史版本；`git reset  –hard 版本号 `
-### 3.撤销add
+`git reflog`查看历史版本；`git reset --hard 版本号 `
+
+#### 3.撤销add
 &ensp;&ensp;`git reset head <文件名>`   撤销对某个文件的add命令
 &ensp;&ensp;`git reset head .`  撤销所有文件的add命令
+
 
 ## 创建与合并分支命令如下：
 * 查看分支：`git branch`
@@ -86,6 +92,7 @@ git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 * 创建+切换分支：`git checkout –b name`
 * 合并某分支到当前分支：`git merge name`
 * 删除分支：`git branch –d name`
+
 
 ## github提交时想忽略某些文件
 比如我提交的时候，不想提交`node_modules`这个文件夹或者想忽略掉更多的文件夹，可以在github上或者在你的文件中添加`.gitignore`这个文件
@@ -142,7 +149,8 @@ public/
 * 查看远程库的信息`git remote`
 * 查看远程库的详细信息 `git remote –v`
 * 把master分支推送到远程库对应的远程分支上 `git push origin master` 
-* 把分支推送到远程的分支`git push origin develop`
+* 把分支推送到远程的分支`git push origin develop`或者`git push origin 本地分支名:远程分支名`
+
 
 ## 常见问题
 
