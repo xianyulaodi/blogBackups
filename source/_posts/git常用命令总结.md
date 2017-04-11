@@ -90,7 +90,7 @@ git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 * 创建分支：`git branch name`
 * 切换分支：`git checkout name`
 * 创建+切换分支：`git checkout –b name`
-* 合并某分支到当前分支：`git merge name`
+* 合并某分支到当前分支：`git merge name`.比如将dev分支合并到master下，那么在master分支下执行`git merge dev`
 * 删除分支：`git branch –d name`
 
 
