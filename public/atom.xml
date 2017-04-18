@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianyulaodi.github.io/"/>
-  <updated>2017-04-09T15:52:57.146Z</updated>
+  <updated>2017-04-18T15:27:29.006Z</updated>
   <id>https://xianyulaodi.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node核心模块--fs</title>
+    <link href="https://xianyulaodi.github.io/2017/04/18/node%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97--fs/"/>
+    <id>https://xianyulaodi.github.io/2017/04/18/node核心模块--fs/</id>
+    <published>2017-04-18T15:17:00.000Z</published>
+    <updated>2017-04-18T15:27:29.006Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文件系统fs-简介&quot;&gt;&lt;a href=&quot;#文件系统fs-简介&quot; class=&quot;headerlink&quot; title=&quot;文件系统fs-简介&quot;&gt;&lt;/a&gt;文件系统fs-简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;fs模块是文件操作的封装，它提供了文件读取、写入、更名、删除、遍历目录、链接等POSIX文件系统操作。与其它模块不同的是，fs模块中所有的操作都提供了&lt;code&gt;异步&lt;/code&gt;和&lt;code&gt;同步&lt;/code&gt;的两个版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="fs" scheme="https://xianyulaodi.github.io/tags/fs/"/>
+    
+      <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo+github搭建自己的博客</title>
@@ -40,7 +62,7 @@
     <link href="https://xianyulaodi.github.io/2017/03/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
     <id>https://xianyulaodi.github.io/2017/03/31/git常用命令总结/</id>
     <published>2017-03-31T07:50:00.000Z</published>
-    <updated>2017-04-09T16:07:43.824Z</updated>
+    <updated>2017-04-11T15:37:27.928Z</updated>
     
     <summary type="html">
     
@@ -116,6 +138,30 @@
       <category term="博客园迁移" scheme="https://xianyulaodi.github.io/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%BF%81%E7%A7%BB/"/>
     
       <category term="cookie" scheme="https://xianyulaodi.github.io/tags/cookie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以setTimeout来聊聊Event Loop</title>
+    <link href="https://xianyulaodi.github.io/2017/02/26/%E4%BB%A5setTimeout%E6%9D%A5%E8%81%8A%E8%81%8AEvent%20Loop/"/>
+    <id>https://xianyulaodi.github.io/2017/02/26/以setTimeout来聊聊Event Loop/</id>
+    <published>2017-02-26T05:35:00.000Z</published>
+    <updated>2017-04-18T15:40:01.624Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;平时的工作中，也许你会经常用到setTimeout这个方法，可是你真的了解setTimeout吗？本文想通过总结setTimeout的用法，顺便来探索javascript里面的事件执行机制。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="博客园迁移" scheme="https://xianyulaodi.github.io/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%BF%81%E7%A7%BB/"/>
+    
+      <category term="setTimeout" scheme="https://xianyulaodi.github.io/tags/setTimeout/"/>
+    
+      <category term="Eventloop" scheme="https://xianyulaodi.github.io/tags/Eventloop/"/>
     
   </entry>
   
