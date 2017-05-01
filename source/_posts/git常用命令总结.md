@@ -1,4 +1,4 @@
----
+﻿---
 title: git常用命令总结
 date: 2017-03-31 15:50
 categories:
@@ -192,5 +192,44 @@ git 在pull或者合并分支的时候有时会遇到这个界面。可以不管
 3.按键盘左上角"Esc"
 4.输入":wq",注意是冒号+wq,按回车键即可
      
+问题4
+`git pull`的时候，可能会遇到下面的报错
+```bash
+remote: Counting objects: 369, done.  
+efrror: RPC failed; result=56, HTTP code = 200  
+atal: The remote end hung up unexpectedly  
+fatal: protocol error: bad pack header  
+```
+**解决方法**
+依次输入以下命令
+```bash
+git config --global pack.windowMemory "100m"  
+git config --global pack.SizeLimit "100m"  
+git config --global pack.threads "1" 
+```
 
+问题5
+git clone的时候，可能会遇到这个报错，很烦人
+
+```bash
+akagi201@akgentoo ~/a20-kernel (master*) $ git config http.postBuffer 5024288000
+akagi201@akgentoo ~/a20-kernel (master*) $ git submodule update
+Cloning into 'linux-sunxi'...
+remote: Counting objects: 4022357, done.
+remote: Compressing objects: 100% (682462/682462), done.
+error: RPC failed; result=18, HTTP code = 200.31 MiB | 654.00 KiB/s
+fatal: The remote end hung up unexpectedly
+fatal: early EOF
+fatal: index-pack failed
+Clone of 'https://github.com/linux-sunxi/linux-sunxi.git' into submodule path 'linux-sunxi' failed
+```
+解决方法：亲测有效
+
+```bash
+git clone url --depth  1
+```
+比如：
+```bash
+git clone https://github.com/xianyulaodi/express-study.git --depth  1
+```
 
