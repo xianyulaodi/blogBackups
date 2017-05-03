@@ -233,3 +233,28 @@ git clone url --depth  1
 git clone https://github.com/xianyulaodi/express-study.git --depth  1
 ```
 
+问题6
+git pull的时候，可能会遇到如下报错
+
+```bash
+$ git pull
+error: You have not concluded your merge (MERGE_HEAD exists).
+hint: Please, commit your changes before merging.
+fatal: Exiting because of unfinished merge.
+```
+错误可能是因为在你以前pull下来的代码没有自动合并导致的.
+
+有2个解决办法:
+
+1. 保留你本地的修改
+`git merge --abort`
+`git reset --merge`
+`git commit xxx -m "注释"`  合并后记得一定要提交这个本地的合并
+`git pull`
+
+2. 抛弃本地的修改
+
+不建议这样做,但是如果你本地修改不大,或者自己有一份备份留存,可以直接用线上最新版本覆盖到本地
+`git fetch --all`
+`git reset --hard origin/master`
+`git fetch`
