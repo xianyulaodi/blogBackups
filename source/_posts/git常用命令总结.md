@@ -36,7 +36,7 @@ Git clone git@xxxx.gitlab.com:xxxxxx/SELand_Vertu
 7、删除分支`git branch -d name`,然后推送到远程master `git push origin master`;
 
 * 有时候可能会是在别人的分支上进行代码的修改，此时，步骤3之后插多一个步骤：
-将自己的项目分支同步项目主分支（我们项目分支为develop分支） 
+将自己的项目分支同步项目主分支（我们项目分支为develop分支）
 ```
 git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 ```
@@ -67,9 +67,9 @@ git pull git@xxx.gitlab.com:xxx/SELand_Vertu develop
 #### 1、撤销commit
 方法1:
 &ensp;&ensp;执行`git log`查看 commit日志，然后`git reset --hard commit_id `commit_id是控制台上的hash值
-方法2: 
+方法2:
 &ensp;&ensp;`git reset  –hard HEAD^`,如果是上上一个版本`git reset  –hard HEAD^^`,如果是上一百个版本`git reset  –hard HEAD~100 `;
-方法3: 
+方法3:
 &ensp;&ensp;`git checkout  —-文件名` 撤销对某个文件的修改,例：`git checkout  —-readme.txt`；
 &ensp;&ensp;`git checkout -- .`撤销对所有文件的修改
 
@@ -147,7 +147,7 @@ public/
 * 恢复文件的同时 也删除文件 `git stash pop `
 * 查看远程库的信息`git remote`
 * 查看远程库的详细信息 `git remote –v`
-* 把master分支推送到远程库对应的远程分支上 `git push origin master` 
+* 把master分支推送到远程库对应的远程分支上 `git push origin master`
 * 把分支推送到远程的分支`git push origin develop`或者`git push origin 本地分支名:远程分支名`
 
 
@@ -184,14 +184,14 @@ git stash pop
 `git reset --hard`
 `git pull`
 
-问题3 
+问题3
 ![](http://images2015.cnblogs.com/blog/630011/201603/630011-20160315120522896-1718649799.jpg)
 git 在pull或者合并分支的时候有时会遇到这个界面。可以不管(直接下面3,4步)，如果要输入解释的话就需要:
 1.按键盘字母 i 进入insert模式
 2.修改最上面那行黄色合并信息,可以不修改
 3.按键盘左上角"Esc"
 4.输入":wq",注意是冒号+wq,按回车键即可
-     
+
 问题4
 `git pull`的时候，可能会遇到下面的报错
 ```bash
@@ -205,7 +205,7 @@ fatal: protocol error: bad pack header
 ```bash
 git config --global pack.windowMemory "100m"  
 git config --global pack.SizeLimit "100m"  
-git config --global pack.threads "1" 
+git config --global pack.threads "1"
 ```
 
 问题5
@@ -243,9 +243,7 @@ hint: Please, commit your changes before merging.
 fatal: Exiting because of unfinished merge.
 ```
 错误可能是因为在你以前pull下来的代码没有自动合并导致的.
-
 有2个解决办法:
-
 1. 保留你本地的修改
 `git merge --abort`
 `git reset --merge`
@@ -253,7 +251,6 @@ fatal: Exiting because of unfinished merge.
 `git pull`
 
 2. 抛弃本地的修改
-
 不建议这样做,但是如果你本地修改不大,或者自己有一份备份留存,可以直接用线上最新版本覆盖到本地
 `git fetch --all`
 `git reset --hard origin/master`

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianyulaodi.github.io/"/>
-  <updated>2017-04-18T15:27:29.006Z</updated>
+  <updated>2017-05-09T15:25:04.135Z</updated>
   <id>https://xianyulaodi.github.io/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nodejs之path模块</title>
+    <link href="https://xianyulaodi.github.io/2017/05/07/nodejs%E4%B9%8Bpath%E6%A8%A1%E5%9D%97/"/>
+    <id>https://xianyulaodi.github.io/2017/05/07/nodejs之path模块/</id>
+    <published>2017-05-07T10:50:00.000Z</published>
+    <updated>2017-05-09T15:25:04.135Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;path 模块是 node 用于整理、转换、合并路径的神器，只要是路径问题，都可以交给它处理。但它仅仅是处理路径字符串，而不会去坚持或处理文件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
+    
+      <category term="path" scheme="https://xianyulaodi.github.io/tags/path/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongoose的一些操作命令</title>
+    <link href="https://xianyulaodi.github.io/2017/05/06/mongoose%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"/>
+    <id>https://xianyulaodi.github.io/2017/05/06/mongoose的一些操作命令/</id>
+    <published>2017-05-06T03:50:00.000Z</published>
+    <updated>2017-05-07T10:14:17.057Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近在用express+mongoose写一个网站，因为经常要用到mongoose的一些操作命令，经常去查还挺麻烦的，所以总结一篇mongoose的使用以及一些操作命令。mongoose里面有三个概念，schemal、model、entity。先来对其三者做个小小的总结概括。&lt;br&gt;&lt;code&gt;Schema&lt;/code&gt; ： 一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力&lt;br&gt;&lt;code&gt;Model&lt;/code&gt; ： 由Schema发布生成的模型，具有抽象属性和行为的数据库操作对&lt;br&gt;&lt;code&gt;Entity&lt;/code&gt; ： 由Model创建的实体，他的操作也会影响数据库&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="mongoose" scheme="https://xianyulaodi.github.io/tags/mongoose/"/>
+    
+      <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>node核心模块--fs</title>
@@ -31,9 +71,9 @@
     </summary>
     
     
-      <category term="fs" scheme="https://xianyulaodi.github.io/tags/fs/"/>
-    
       <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
+    
+      <category term="fs" scheme="https://xianyulaodi.github.io/tags/fs/"/>
     
   </entry>
   
@@ -62,7 +102,7 @@
     <link href="https://xianyulaodi.github.io/2017/03/31/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/"/>
     <id>https://xianyulaodi.github.io/2017/03/31/git常用命令总结/</id>
     <published>2017-03-31T07:50:00.000Z</published>
-    <updated>2017-04-11T15:37:27.928Z</updated>
+    <updated>2017-05-06T02:51:09.796Z</updated>
     
     <summary type="html">
     
