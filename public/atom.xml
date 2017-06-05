@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianyulaodi.github.io/"/>
-  <updated>2017-05-09T15:25:04.135Z</updated>
+  <updated>2017-05-30T01:04:48.105Z</updated>
   <id>https://xianyulaodi.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式学习</title>
+    <link href="https://xianyulaodi.github.io/2017/05/30/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xianyulaodi.github.io/2017/05/30/正则表达式学习/</id>
+    <published>2017-05-30T01:04:00.000Z</published>
+    <updated>2017-05-30T01:04:48.105Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;正则表达式之前学习的时候，因为很久没怎么用，或者用的时候直接找网上现成的，所以都基本忘的差不多了。所以这篇文章即是笔记，也让自己再重新学习一遍正则表达式。&lt;br&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;其实平时在操作一些字符串的时候，用正则的机会还是挺多的，之前没怎么重视正则，这是一个错误&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="正则" scheme="https://xianyulaodi.github.io/tags/%E6%AD%A3%E5%88%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>老生常谈，css实现左侧固定右侧自适应</title>
+    <link href="https://xianyulaodi.github.io/2017/05/25/%E8%80%81%E7%94%9F%E5%B8%B8%E8%B0%88css%E5%AE%9E%E7%8E%B0%E5%B7%A6%E4%BE%A7%E5%9B%BA%E5%AE%9A%EF%BC%8C%E5%8F%B3%E4%BE%A7%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    <id>https://xianyulaodi.github.io/2017/05/25/老生常谈css实现左侧固定，右侧自适应/</id>
+    <published>2017-05-25T02:20:00.000Z</published>
+    <updated>2017-05-25T15:42:24.747Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;ensp;&amp;ensp;这是一个在项目中经常使用的一个功能，而且实现方式也比较多，所以我们今天来总结以下几种实现方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="css" scheme="https://xianyulaodi.github.io/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>nodejs之path模块</title>
