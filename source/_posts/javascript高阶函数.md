@@ -7,7 +7,7 @@ tags:
      - 高阶函数
 ---
 
-&ensp;&ensp;&ensp;&ensp;最近在看js设计模式相关的书籍，发觉很多模式都有用到高阶函数这个东东，发觉自己之前没有总结过这类文章，所以今天来总结一番
+&ensp;&ensp;&ensp;&ensp;最近在看js设计模式相关的书籍，发觉很多模式都有用到高阶函数这个东东，发觉自己之前没有总结过这类文章，所以来个小小的总结。总结的篇幅有点少，纯属做做笔记
 
 <!--more-->
 
@@ -42,8 +42,8 @@ var getSingle = function(fn) {
 
 ** 定义 **
 
-柯里化（Currying），又称部分求值，一个currying的函数首先会接受一些参数，接受这些参数之后，函数**并不会立即求值**，而是继续返回另一个函数，刚才传入的参数在函数形成的闭包中被保存起来，待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值。
-比如有下面的场景：有个销售需要统计每天的销售额，待到月底的时候再统一计算该月的销售总额。
+&ensp;&ensp;柯里化（Currying），又称部分求值，一个currying的函数首先会接受一些参数，接受这些参数之后，函数**并不会立即求值**，而是继续返回另一个函数，刚才传入的参数在函数形成的闭包中被保存起来，待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值。
+&ensp;&ensp;比如有下面的场景：有个销售需要统计每天的销售额，待到月底的时候再统一计算该月的销售总额。
 用代码的形式如下：
 ```javascript
 var currying = function(fn) {
@@ -72,12 +72,48 @@ console.log(sellAmount()); //600
 ```
 上面的代码就是函数柯里化的一种形式，我传入了每天的销售额，并不会立即求值，而是等到月底，我需要统计总额的时候才一次性求值
 
+## 3. 高阶函数实战
+* 1.比较常用的一个地方,为一个元素添加事件;
+```javascript
+var addEvent = function(elem, type, handler) {
+   if (window.addEventListener) {
+      addEvent = function(elem, type, handler) {
+        elem.addEventListener(type, handler, false);
+      }
+   } else if (window.attachEvent) {
+      addEvent = function(elem, type, handler) {
+        elem.attachEvent('on' + type, handler);
+      }
+  }
+  addEvent(elem, type, handler);
+};
+```
+* 2.函数节流
+比如在window.resize中，不想被频繁的触发事件，想每隔一定的间隔事件来触发
+```javascript
+function throttle(fn, interval) {
+  var doing = false;
 
-## 3. 高阶函数的作用
+  return function() {
+    if (doing) {
+      return;
+    }
+    doing = true;
+    fn.apply(this, arguments);
+    setTimeout(function() {
+      doing = false;
+    }, interval);
+  }
+}
 
-## 4. 高阶函数实战
+window.onresize = throttle(function(){
+    console.log('execute');
+}, 500);
+```
+<br >
+&ensp;&ensp;&ensp;&ensp;高阶函数在设计模式中用的还是比较多的，也是比较有用的一个东西，所以掌握它是比较有必要性的。
+最近在看曾探写的《Javascript设计模式与开发实践》，非常不错，值得推荐
 
 
-参考：
-1. https://segmentfault.com/a/1190000006096034    掌握JavaScript函数的柯里化
-2. http://www.cnblogs.com/dojo-lzz/p/4576083.html Javascript：是你的高阶函数
+
+参考资料:《Javascript设计模式与开发实践》

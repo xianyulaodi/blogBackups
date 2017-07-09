@@ -36,7 +36,7 @@ Router.prototype.route = function(path,callback) {
 // 更新页面，其实就是执行注册的回调函数
 Router.prototype.refresh = function() {
 	this.currentUrl = location.hash.slice(1) || '/';
-	this.router[this.currentUrl]();
+	this.routers[this.currentUrl]();
 }
 Router.prototype.init = function() {
 	window.addEventListener('load',this.refresh.bind(this),false);
@@ -68,57 +68,142 @@ Router.route('/page2', function() {
 });
 </script>
 ```
-这样，我们点击不同路由，显示不同路由对应的文字
+这样，我们点击不同路由，显示不同路由对应的文字 ,点击查看<a href="/demo/router1.html" target="_blank">demo</a>
 
 ## 再来个复杂版本
-通过上面的代码，我们完成了一个简单的js Router,接下来我们再来一个高级一点的版本，真正实现一个router库
+通过上面的代码，我们完成了一个简单的js Router,接下来我们再来一个稍微高级一点的版本，真正实现一个router库
 我们封装一下我们的代码，
-1. 通过push来新增路由
-2. 可以删掉路由
-3. 可以增加router active
-4. 可以跳转到指定路由
-5. 进入路由的回调，以及离开路由的回调
+
+```javascript
+;(function (global, factory) {
+
+    if (typeof define === 'function' && (define.amd || define.cmd)) {
+        //AMD/CMD
+        define(function (global) {
+            return factory(global);
+        });
+    } else if (typeof module === 'object' && typeof module.exports === 'object') {
+        //CommonJS
+        module.exports = factory(global);
+    } else {
+        //Browser
+        global.Router = factory(global);
+    }
+
+}(typeof window !== 'undefined' ? window : this, function (window) {
+
+var Router = {
+	
+    /**
+     * 注册的所有路由对象
+     */
+    hashList: {},
+	
+	/**
+	 * 当前路由
+	 */
+    index: null,
+   
+
+    /**
+     * Add router
+     * 注册路由对象
+	**/
+    add: function (path,callback) {
+    	
+        this.hashList[path] = callback;
+    },
+    
+    /**
+     * 跳转到指定路由
+     */
+    go: function(path) {
+    	
+    	window.location.hash = '#' + path;
+    },
+    
+    /**
+     * 删除路由
+     */
+    remove: function(path) {	 
+    	
+        delete this.hashList[path];
+    },
+    /**
+     * 重新加载页面
+     */
+    reload:function() {
+    	var self = this;
+        var hash = window.location.hash.replace('#', '');
+        var addr = hash.split('/')[0];
+        var cb =   self.getCb(addr, self.hashList);
+        if(cb != false) {
+            var arr = hash.split('/');
+            arr.shift();
+            cb.apply(self, arr);
+        } else {
+            self.index && self.go(self.index);
+        }
+    },
+
+ 	/**
+     * 设置主页地址
+     * @param index: 主页地址
+     */
+    setIndex: function(index) {
+        this.index = index;
+    },
+    
+     /**
+     * 获取callback
+     * @return false or callback
+     */
+    getCb: function(addr, hashList) {
+        for(var key in hashList) {
+            if(key == addr) {
+                return hashList[key]
+            }
+        }
+        return false;
+    },
+    
+    /**
+     * 初始化路由
+     */
+    init: function (options) {
+    	var self = this;
+    	window.onhashchange = function() {
+            self.reload();
+        };
+    },
+    start: function() {
+    	this.reload();
+    }
+};
+
+return Router;
+    
+}));
+```
+使用方法：
+```html
+<a href="#index">首页</a>
+<a href="#detail/1654499">详情页</a>
+<script>
+Router.init();
+Router.add('index', function() {
+    alert('这里是首页的内容');
+    });
+ 
+    Router.add('detail', function(id) {
+    alert('这里是详情页，id为'+id);
+});
+Router.setIndex('index'); //设置首页
+Router.start();
+</script>
+```
+这里查看<a href="/demo/router2.html" target="_blank">demo</a>
 
 
+&ensp;&ensp;&ensp;这样，我们的简单的路由器就完成了，后面我们将HTML5的history API搞进来，弄成一个即可用hash，也可以用history的版本
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-参考：
-1. [一个轻量级的JS路由库——fd-router](http://www.feeldesignstudio.com/2016/01/fd-router-a-simple-javascript-router-for-spa/?utm_source=tuicool&utm_medium=referral)
-2. [原生JS实现一个简单的前端路由（路由实现的原理）](http://blog.csdn.net/sunxinty/article/details/52586556)
-3. [自己动手写一个前端路由插件](http://www.cnblogs.com/libin-1/p/5906526.html)
