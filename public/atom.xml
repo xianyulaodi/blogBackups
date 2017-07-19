@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianyulaodi.github.io/"/>
-  <updated>2017-06-25T02:46:22.905Z</updated>
+  <updated>2017-07-09T03:51:59.493Z</updated>
   <id>https://xianyulaodi.github.io/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript高阶函数</title>
+    <link href="https://xianyulaodi.github.io/2017/07/03/javascript%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    <id>https://xianyulaodi.github.io/2017/07/03/javascript高阶函数/</id>
+    <published>2017-07-03T02:38:00.000Z</published>
+    <updated>2017-07-09T03:51:59.493Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近在看js设计模式相关的书籍，发觉很多模式都有用到高阶函数这个东东，发觉自己之前没有总结过这类文章，所以来个小小的总结。总结的篇幅有点少，纯属做做笔记&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://xianyulaodi.github.io/tags/js/"/>
+    
+      <category term="高阶函数" scheme="https://xianyulaodi.github.io/tags/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>手写一个router</title>
@@ -31,9 +51,9 @@
     </summary>
     
     
-      <category term="router" scheme="https://xianyulaodi.github.io/tags/router/"/>
-    
       <category term="js" scheme="https://xianyulaodi.github.io/tags/js/"/>
+    
+      <category term="router" scheme="https://xianyulaodi.github.io/tags/router/"/>
     
   </entry>
   
@@ -87,9 +107,9 @@
     </summary>
     
     
-      <category term="path" scheme="https://xianyulaodi.github.io/tags/path/"/>
-    
       <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
+    
+      <category term="path" scheme="https://xianyulaodi.github.io/tags/path/"/>
     
   </entry>
   
@@ -107,9 +127,9 @@
     </summary>
     
     
-      <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
-    
       <category term="mongoose" scheme="https://xianyulaodi.github.io/tags/mongoose/"/>
+    
+      <category term="node" scheme="https://xianyulaodi.github.io/tags/node/"/>
     
   </entry>
   

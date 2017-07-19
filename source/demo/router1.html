@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>router test</title>
+	</head>
+	<body>
+		<ul> 
+		    <li><a href="#/">index</a></li> 
+		    <li><a href="#/page1">page1</a></li> 
+		    <li><a href="#/page2">page2</a></li> 
+		</ul> 
+		<p class="text"></p>
+	</body>
+	<script type="text/javascript">
+		function Router() {
+			this.routers = {};    //存储路由回调函数,以传入的路径为key,callback为value
+			this.currentUrl = ''; //当前路由
+		}
+		// 注册路由路径和存储回调函数
+		Router.prototype.route = function(path,callback) {
+			this.routers[path] = callback || function() {}
+		}
+		// 更新页面，其实就是执行注册的回调函数
+		Router.prototype.refresh = function() {
+			this.currentUrl = location.hash.slice(1) || '/';
+			this.routers[this.currentUrl]();
+		}
+		Router.prototype.init = function() {
+			window.addEventListener('load',this.refresh.bind(this),false);
+			window.addEventListener('hashchange',this.refresh.bind(this),false);
+		}
+		window.Router = new Router();
+		window.Router.init();
+		
+		
+		var text = document.querySelector('.text');
+		Router.route('/', function() {
+			text.innerHTML = '这里是首页';
+		});
+		Router.route('/page1', function() {
+		    text.innerHTML = '这里是page1';
+		});
+		Router.route('/page2', function() {
+		    text.innerHTML = '这里是page2';
+		});
+	</script>
+</html>

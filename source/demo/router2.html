@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>router2</title>
+</head>
+
+<body>
+	<a href="#index">首页</a>
+    <a href="#detail/1654499">详情页</a>
+</body>
+
+<script type="text/javascript">
+;(function (global, factory) {
+
+    if (typeof define === 'function' && (define.amd || define.cmd)) {
+        //AMD/CMD
+        define(function (global) {
+            return factory(global);
+        });
+    } else if (typeof module === 'object' && typeof module.exports === 'object') {
+        //CommonJS
+        module.exports = factory(global);
+    } else {
+        //Browser
+        global.Router = factory(global);
+    }
+
+}(typeof window !== 'undefined' ? window : this, function (window) {
+
+    var Router = {
+    	
+        /**
+         * 注册的所有路由对象
+         */
+        hashList: {},
+ 		
+ 		/**
+ 		 * 当前路由
+ 		 */
+        index: null,
+   
+
+        /**
+         * Add router
+         * 注册路由对象
+ 		**/
+        add: function (path,callback) {
+        	
+            this.hashList[path] = callback;
+        },
+        
+        /**
+         * 跳转到指定路由
+         */
+        go: function(path) {
+        	
+        	window.location.hash = '#' + path;
+        },
+        
+        /**
+         * 删除路由
+         */
+        remove: function(path) {	 
+        	
+	        delete this.hashList[path];
+	    },
+        /**
+         * 重新加载页面
+         */
+        reload:function() {
+        	var self = this;
+	        var hash = window.location.hash.replace('#', '');
+	        var addr = hash.split('/')[0];
+	        var cb =   self.getCb(addr, self.hashList);
+	        if(cb != false) {
+	            var arr = hash.split('/');
+	            arr.shift();
+	            cb.apply(self, arr);
+	        } else {
+	            self.index && self.go(self.index);
+	        }
+        },
+
+     	/**
+	     * 设置主页地址
+	     * @param index: 主页地址
+	     */
+	    setIndex: function(index) {
+	        this.index = index;
+	    },
+	    
+	     /**
+	     * 获取callback
+	     * @return false or callback
+	     */
+	    getCb: function(addr, hashList) {
+	        for(var key in hashList) {
+	            if(key == addr) {
+	                return hashList[key]
+	            }
+	        }
+	        return false;
+	    },
+	    
+	    /**
+         * 初始化路由
+         */
+        init: function (options) {
+        	var self = this;
+        	window.onhashchange = function() {
+	            self.reload();
+	        };
+        },
+        start: function() {
+        	this.reload();
+        }
+    };
+
+	return Router;
+    
+}));
+Router.init();
+Router.add('index', function() {
+    alert('这里是首页的内容');
+    });
+ 
+    Router.add('detail', function(id) {
+    alert('这里是详情页，id为'+id);
+});
+Router.setIndex('index'); //设置首页
+Router.start();
+
+</script>
+</html>
