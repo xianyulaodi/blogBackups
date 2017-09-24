@@ -26,11 +26,10 @@ tags:
    cursor: zoom-out; /* 缩小，也就是 -  号 */
 }
 ```
-
-可以点击查看 [demo](http://www.baidu.com);
+可以点击查看 <a href="/demo/cursor-zoom.html" target="_blank">demo</a>
 
 兼容性方面：
-![](http://localhost:4000/img/zoom-in.png);
+![](/img/zoom-in.png)
 &ensp;&ensp;从图中我们可以看到，除了IE，其他浏览器的兼容性都特别好，也就是说，除了IE11及以下，其他浏览器都支持 zoom-in/zoom-out
 (唉，IE何时灭亡)
 
@@ -56,5 +55,7 @@ tags:
 | text       | 此光标指示文本。   |   
 | wait        | 此光标指示程序正忙（通常是一只表或沙漏）。   |   
 | help	        | 此光标指示可用的帮助（通常是一个问号或一个气球）。  |   
+| grab        | 抓手，抓，除了IE11及以，都支持，要加浏览器前缀   |   
+| grabbing	        | 抓手，抓住 ，除了IE11及以，都支持，要加浏览器前缀  |
 
-具体的效果可以点击查看 [demo](); 
+具体的效果可以点击查看 <a href="/demo/cursor-other.html" target="_blank">demo</a>

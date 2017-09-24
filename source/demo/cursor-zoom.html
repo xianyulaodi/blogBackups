@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>cursor zoom</title>
+		<style media="screen">
+			body,ul,li {
+					border: 0;
+					padding: 0
+					margin: 0;
+					list-style: none;
+			}
+			li {
+				text-align: center;
+				padding-top: 10px;
+			}
+			.bg {
+				width: 265px;
+				height: 205px;
+				cursor: zoom-in;
+				background: url(images/zoom.jpg) no-repeat center top;
+				background-size: contain;
+				margin: auto;
+			}
+			.zoom-out {
+				width: 580px;
+				height: 410px;
+				cursor: zoom-out;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+		    <li>点击图片查看效果</li>
+		    <li class="bg"></li>
+		</ul>
+		<p class="text"></p>
+	</body>
+	<script type="text/javascript">
+			var Img = document.querySelector('.bg');
+			var flag = false;
+			Img.onclick = function() {
+				if(!flag) {
+					this.classList.add('zoom-out');
+					flag = true;
+				} else {
+					 flag = false;
+					 this.classList.remove('zoom-out');
+				}
+			}
+
+	</script>
+</html>

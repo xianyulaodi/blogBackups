@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>cursor zoom</title>
+		<style media="screen">
+			body,ul,li {
+					border: 0;
+					padding: 0
+					margin: 0;
+					list-style: none;
+			}
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+      }
+			li {
+				text-align: center;
+        color: #fff;
+        background: #1d1d1d;
+				margin: 15px 10px 0;
+        padding: 10px;
+        width: 30%;
+        box-sizing: border-box;
+        border-radius: 5px;
+			}
+      .article-entry ol li:before, .article-entry ul li:before {
+        display: none;
+      }
+		</style>
+	</head>
+	<body>
+    <p>鼠标移动到单词上，可以看到鼠标指针变化：</p>
+    <ul>
+      <li style="cursor:auto">Auto</li>
+      <li style="cursor:crosshair">  Crosshair</li>
+      <li style="cursor:default">  Default</li>
+      <li style="cursor:pointer">  Pointer</li>
+      <li style="cursor:move"> Move</li>
+      <li style="cursor:e-resize"> e-resize</li>
+      <li style="cursor:ne-resize">  ne-resize</li>
+      <li style="cursor:nw-resize">nw-resize</li>
+      <li style="cursor:n-resize">  n-resize</li>
+      <li style="cursor:se-resize"> se-resize</li>
+      <li style="cursor:sw-resize"> sw-resize</li>
+      <li style="cursor:s-resize">  s-resize</li>
+      <li style="cursor:w-resize">  w-resize</li>
+      <li style="cursor:text">  text</li>
+      <li style="cursor:wait"> wait</li>
+      <li style="cursor:help">help</li>
+      <li style="cursor:-webkit-grab">grab</li>
+      <li style="cursor:-webkit-grabbing">grabbing</li>
+    </ul>
+	</body>
+</html>
