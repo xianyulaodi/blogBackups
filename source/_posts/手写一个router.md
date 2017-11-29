@@ -3,6 +3,7 @@ title: 手写一个router
 date: 2017-06-18 23:05
 categories:
 tags: [router,js]
+toc: true
 ---
 
 >	最近在玩vue,之前玩的react等，都有涉及到router的概念，router的入门不难，本着好奇的心态，想自己用js写一个router，纯属娱乐，应该不可用于实际项目

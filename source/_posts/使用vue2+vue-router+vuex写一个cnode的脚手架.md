@@ -7,6 +7,7 @@ tags:
     - vue
     - vuex
     - vue-router
+toc: true
 ---
 
 &ensp;&ensp;公司后面的H5项目打算用vue2来做，之前有用过一小会vue，但没有真正的去了解，之前框架来说用react用的比较多点。所以趁这个阶段，用cnode中文网提供的api来做了个入门的脚手架，如果脚手架搭好并理解了，那么后面的运用就轻松多了。

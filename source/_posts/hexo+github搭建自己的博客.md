@@ -5,6 +5,7 @@ categories:
 tags:
     - hexo
     - github
+toc: true
 ---
 
 之前很早就想用hexo弄一个自己独立的博客了，在博客园也写了很多的博客,不过不喜欢博客园的风格。不过今天，终于折腾成功了，用hexo搭建了一个在github写的博客，开心，后面会将自己以前的博客慢慢迁移过来。
@@ -71,9 +72,15 @@ hexo new "文章标题"
  <img src="<%=theme.avatar%>" class="js-avatar show">
  <img src="<%=theme.avatar%>" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 ```
-## 添加阅读量
-计划使用 `Lean Cloud` 可以参考 [这里](http://crescentmoon.info/2014/12/11/popular-widget/#ds-thread)
+## 添加阅读量统计
+这里使用的是不蒜子统计  [点击前往](http://busuanzi.ibruce.info/)
 
 ## 添加评论模块
-可以参考这篇文章：[评论模块](http://moxfive.xyz/2016/01/02/hexo-comments/?utm_source=tuicool&utm_medium=referral)
-本博客中，因为多说已经不再维护了，友言不支持https，所以暂时没弄好评论模块,家里的网络访问不了disqus。所以评论模块待定，晚点再弄
+
+评论模块使用的是 Valine -- 一款极简的评论系统
+[点击前往](https://ioliu.cn/2017/add-valine-comments-to-your-blog/)
+后台管理地址: https://leancloud.cn/dashboard/data.html?appid=lfWm5WyOhILUbB9yW5jfsSPM-gzGzoHsz#
+
+
+## 文章目录导航
+参考的是这边文章  [点击前往](http://www.54tianzhisheng.cn/2017/06/13/Hexo-yilia-toc/)

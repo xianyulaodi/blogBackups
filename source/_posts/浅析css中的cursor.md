@@ -4,6 +4,7 @@ date: 2017-07-19 23:00
 categories:
 tags:
      - css
+toc: true
 ---
 
 &ensp;&ensp;&ensp;&ensp;平时我们在css中cursor最多的就是`cursor:pointor`,今天在掘金点击一张图片放大缩小的时候，看了一下源码，发觉cursor中有一个zoom-in和zoom-out的值，可以实现一个放大缩小的鼠标手，觉得挺好玩，所以顺便也总结一下cursor中的一些属性。

@@ -5,6 +5,7 @@ categories:
 tags:
      - mongoose
      - node
+toc: true
 ---
 
 &ensp;&ensp;&ensp;&ensp;最近在用express+mongoose写一个网站，因为经常要用到mongoose的一些操作命令，经常去查还挺麻烦的，所以总结一篇mongoose的使用以及一些操作命令。mongoose里面有三个概念，schemal、model、entity。先来对其三者做个小小的总结概括。

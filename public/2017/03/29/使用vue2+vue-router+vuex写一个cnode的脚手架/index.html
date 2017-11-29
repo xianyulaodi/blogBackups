@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/776370/201703/776370-20170330192446461-1898007541.png">
 <meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/fly_dragon/276813/o_lifecycle-%E6%A0%87%E6%B3%A8%E7%89%88%E6%9C%AC.png">
 <meta property="og:image" content="https://vuex.vuejs.org/zh-cn/images/vuex.png">
-<meta property="og:updated_time" content="2017-04-09T15:49:54.004Z">
+<meta property="og:updated_time" content="2017-11-04T04:57:04.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用vue2+vue-router+vuex写一个cnode的脚手架">
 <meta name="twitter:description" content="&amp;ensp;&amp;ensp;公司后面的H5项目打算用vue2来做，之前有用过一小会vue，但没有真正的去了解，之前框架来说用react用的比较多点。所以趁这个阶段，用cnode中文网提供的api来做了个入门的脚手架，如果脚手架搭好并理解了，那么后面的运用就轻松多了。">
@@ -172,6 +172,33 @@
         
       </header>
     
+    <!-- 目录内容 -->
+    
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+      </p>
+      <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#项目简介"><span class="toc-number">1.</span> <span class="toc-text">项目简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行方式"><span class="toc-number">2.</span> <span class="toc-text">运行方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目说明"><span class="toc-number">3.</span> <span class="toc-text">项目说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue组件的生命周期"><span class="toc-number">4.</span> <span class="toc-text">vue组件的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何写一个组件"><span class="toc-number">5.</span> <span class="toc-text">如何写一个组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vur-router"><span class="toc-number">6.</span> <span class="toc-text">vur-router</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex2-0"><span class="toc-number">7.</span> <span class="toc-text">vuex2.0</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#这里稍作解释：-个人理解，有误之处，欢迎指出"><span class="toc-number">7.0.1.</span> <span class="toc-text">这里稍作解释：(个人理解，有误之处，欢迎指出)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#这里介绍一下vuex异步的操作"><span class="toc-number">7.1.</span> <span class="toc-text">这里介绍一下vuex异步的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面是如何使用传回来的数据的？"><span class="toc-number">7.2.</span> <span class="toc-text">页面是如何使用传回来的数据的？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后记"><span class="toc-number">8.</span> <span class="toc-text">后记</span></a></li></ol>
+      </div>
+      <script type="text/javascript">
+        function showToc(){
+          var toc_article = document.getElementById("toc-article");
+          var show_toc_btn = document.getElementById("show-toc-btn");
+          toc_article.setAttribute("style","display:block");
+          show_toc_btn.setAttribute("style","display:none");
+          };
+        function showBtn(){
+          var toc_article = document.getElementById("toc-article");
+          var show_toc_btn = document.getElementById("show-toc-btn");
+          toc_article.setAttribute("style","display:none");
+          show_toc_btn.setAttribute("style","display:block");
+          };
+      </script>
+    
+    <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <p>&ensp;&ensp;公司后面的H5项目打算用vue2来做，之前有用过一小会vue，但没有真正的去了解，之前框架来说用react用的比较多点。所以趁这个阶段，用cnode中文网提供的api来做了个入门的脚手架，如果脚手架搭好并理解了，那么后面的运用就轻松多了。</p>
@@ -368,6 +395,9 @@
 
 <div class="mask js-mask"></div>
       
+      <span id="busuanzi_container_page_pv" style="display: none;visibility: hidden;" >
+        本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+      </span>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -398,22 +428,24 @@
 
 
 
-  
-    <div class="duoshuo"></div>
-  
+ <section class="comment-wrap">
+  <div id="comment"></div>
+ </section>
+  <!--Leancloud 操作库:-->
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <!--Valine 的核心代码库:-->
+  <script src="/./Valine.min.js"></script>
+  <script>
+      new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV, 
+          el: '#comment', // 
+          app_id: 'lfWm5WyOhILUbB9yW5jfsSPM-gzGzoHsz', // 这里填写上面得到的APP ID
+          app_key: 'vDYFxrS2GlpP3eVLOvprloHW', // 这里填写上面得到的APP KEY
+          placeholder: '请输入您的评论信息' // [v1.0.7 new]留言框占位提示文字
+      });
+  </script>
 
-
-
-
-
-
-    
-        <section class="youyan" id="comments">
-  <div id="uyan_frame"></div>
-  <script src="//v2.uyan.cc/code/uyan.js?uid=2130404"></script>
-</section>
-
-    
 
 
           </div>
@@ -425,6 +457,15 @@
     	<div class="footer-left">
     		&copy; 2017 咸鱼老弟
     	</div>
+       <!--统计start-->
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      <span id="busuanzi_container_site_pv">
+         本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+      <span id="busuanzi_container_site_uv">
+        总访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+      <!--统计end-->
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
@@ -529,14 +570,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高阶函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -549,15 +582,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">path</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mongoose</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fs</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高阶函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">path</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +603,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Eventloop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,6 +631,26 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">process</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">util</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端劫持</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反劫持</a>
               </li>
             
             <div class="clearfix"></div>

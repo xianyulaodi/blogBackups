@@ -6,6 +6,7 @@ tags:
      - 博客园迁移
      - setTimeout
      - Eventloop
+toc: true
 ---
 
 > 平时的工作中，也许你会经常用到setTimeout这个方法，可是你真的了解setTimeout吗？本文想通过总结setTimeout的用法，顺便来探索javascript里面的事件执行机制。

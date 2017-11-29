@@ -5,6 +5,7 @@ categories:
 tags:
      - path
      - node
+toc: true
 ---
 &ensp;&ensp;&ensp;&ensp;path 模块是 node 用于整理、转换、合并路径的神器，只要是路径问题，都可以交给它处理。但它仅仅是处理路径字符串，而不会去坚持或处理文件。
 

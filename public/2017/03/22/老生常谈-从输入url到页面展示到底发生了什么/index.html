@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/776370/201703/776370-20170319190828323-2078498869.png">
 <meta property="og:image" content="https://segmentfault.com/img/bVCZ1H?w=694&h=340&_=6547807">
 <meta property="og:image" content="https://segmentfault.com/img/bVC1uE?w=734&h=689&_=6547807">
-<meta property="og:updated_time" content="2017-04-09T15:49:54.006Z">
+<meta property="og:updated_time" content="2017-11-04T04:56:51.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="老生常谈-从输入url到页面展示到底发生了什么">
 <meta name="twitter:description" content="&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp; 刚开始写这篇文章还是挺纠结的，因为网上搜索“从输入url到页面展示到底发生了什么”，你可以搜到一大堆的资料。而且面试这道题基本是必考题，二月份面试的时候，虽然知道这个过程发生了什么，不过当面试官一步步追问下去的，很多细节就不太清楚了。 &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;最近刚好也在看http协议相关的东西，所以想对这个话题来个深入的">
@@ -181,6 +181,33 @@
         
       </header>
     
+    <!-- 目录内容 -->
+    
+      <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+      </p>
+      <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、输入地址"><span class="toc-number">1.</span> <span class="toc-text">1、输入地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、浏览器查找域名的-IP-地址"><span class="toc-number">2.</span> <span class="toc-text">2、浏览器查找域名的 IP 地址　　</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、浏览器向-web-服务器发送一个-HTTP-请求"><span class="toc-number">3.</span> <span class="toc-text">3、浏览器向 web 服务器发送一个 HTTP 请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、服务器的永久重定向响应"><span class="toc-number">4.</span> <span class="toc-text">4、服务器的永久重定向响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、浏览器跟踪重定向地址"><span class="toc-number">5.</span> <span class="toc-text">5、浏览器跟踪重定向地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、服务器处理请求"><span class="toc-number">6.</span> <span class="toc-text">6、服务器处理请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、服务器返回一个-HTTP-响应"><span class="toc-number">7.</span> <span class="toc-text">7、服务器返回一个 HTTP 响应　</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、浏览器显示-HTML"><span class="toc-number">8.</span> <span class="toc-text">8、浏览器显示 HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、浏览器发送请求获取嵌入在-HTML-中的资源（如图片、音频、视频、CSS、JS等等）"><span class="toc-number">9.</span> <span class="toc-text">9、浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）</span></a></li></ol>
+      </div>
+      <script type="text/javascript">
+        function showToc(){
+          var toc_article = document.getElementById("toc-article");
+          var show_toc_btn = document.getElementById("show-toc-btn");
+          toc_article.setAttribute("style","display:block");
+          show_toc_btn.setAttribute("style","display:none");
+          };
+        function showBtn(){
+          var toc_article = document.getElementById("toc-article");
+          var show_toc_btn = document.getElementById("show-toc-btn");
+          toc_article.setAttribute("style","display:none");
+          show_toc_btn.setAttribute("style","display:block");
+          };
+      </script>
+    
+    <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
@@ -396,6 +423,9 @@
 
 <div class="mask js-mask"></div>
       
+      <span id="busuanzi_container_page_pv" style="display: none;visibility: hidden;" >
+        本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+      </span>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -426,22 +456,24 @@
 
 
 
-  
-    <div class="duoshuo"></div>
-  
+ <section class="comment-wrap">
+  <div id="comment"></div>
+ </section>
+  <!--Leancloud 操作库:-->
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <!--Valine 的核心代码库:-->
+  <script src="/./Valine.min.js"></script>
+  <script>
+      new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV, 
+          el: '#comment', // 
+          app_id: 'lfWm5WyOhILUbB9yW5jfsSPM-gzGzoHsz', // 这里填写上面得到的APP ID
+          app_key: 'vDYFxrS2GlpP3eVLOvprloHW', // 这里填写上面得到的APP KEY
+          placeholder: '请输入您的评论信息' // [v1.0.7 new]留言框占位提示文字
+      });
+  </script>
 
-
-
-
-
-
-    
-        <section class="youyan" id="comments">
-  <div id="uyan_frame"></div>
-  <script src="//v2.uyan.cc/code/uyan.js?uid=2130404"></script>
-</section>
-
-    
 
 
           </div>
@@ -453,6 +485,15 @@
     	<div class="footer-left">
     		&copy; 2017 咸鱼老弟
     	</div>
+       <!--统计start-->
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      <span id="busuanzi_container_site_pv">
+         本站总访问量<span id="busuanzi_value_site_pv"></span>次
+      </span>
+      <span id="busuanzi_container_site_uv">
+        总访客数<span id="busuanzi_value_site_uv"></span>人次
+      </span>
+      <!--统计end-->
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
@@ -557,14 +598,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高阶函数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -577,15 +610,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">path</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mongoose</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fs</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高阶函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">path</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +631,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Eventloop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +659,26 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">process</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">util</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端劫持</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反劫持</a>
               </li>
             
             <div class="clearfix"></div>
