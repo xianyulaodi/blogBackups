@@ -2,6 +2,7 @@
 title: nodejs学习小结
 date: 2017-09-24 11:04
 categories:
+  - node
 tags:
      - node
 toc: true

@@ -2,6 +2,7 @@
 title: nodejs之path模块
 date: 2017-05-07 18:50
 categories:
+   - node
 tags:
      - path
      - node

@@ -2,6 +2,7 @@
 title: node核心模块--fs
 date: 2017-04-18 23:17
 categories:
+  - node
 tags:
      - fs
      - node

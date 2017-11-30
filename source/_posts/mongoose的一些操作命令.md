@@ -2,6 +2,7 @@
 title: mongoose的一些操作命令
 date: 2017-05-06 11:50
 categories:
+  - node
 tags:
      - mongoose
      - node
