@@ -17,3 +17,5 @@
 3. [react-router中文文档](http://react-guide.github.io/react-router-cn/docs/API.html)
 4. [Ant Design Pro](https://pro.ant.design/docs/getting-started-cn)
 5. [Ant Design](https://ant.design/docs/spec/introduce-cn)
+6. [Creat React App](https://github.com/facebookincubator/create-react-app)
+6. [react-static](https://github.com/nozzle/react-static)
