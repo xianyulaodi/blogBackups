@@ -10,15 +10,15 @@ toc: true
 
 <!-- more -->
 
-我们今天要写的一个npm包的主要作用是用于判断用户是否登录了。暂且给它起名为：`is-login`
+我们今天要写的一个npm包的主要作用是用于判断用户是否登录了,由于我们是写来玩的，所以暂且给它起名为：`is-login-test`
 
 下面开始我们的npm包的制作过程
 
 ## 1. 初始化一个项目
 
 ```bash
-mkdir is-login
-cd is-login
+mkdir is-login-test
+cd is-login-test
 npm init
 ```
 一路回车即可
@@ -91,18 +91,12 @@ README.md 文件主要用于 该项目的一些说明，使用方法等
 1. 首先到 [https://www.npmjs.com](https://www.npmjs.com) 上注册一个账号
 
 2. 在你需要发布的项目文件中，终端输入 `npm adduser`,然后按照提示，输入对应的用户名，密码，邮箱即可。
-
 这里需要注意，你的镜像必须是npm，而不是cnpm，可以使用nrm来管理你的镜像。登录之后，可以终端输入`npm whoami`,如果出现你的名字，那就说明登录成功了。
 
-3. 最后输入`npm publish`,即可发布成功
+3. 最后输入`npm publish --access=public`,即可发布成功。如果有报错，那可能你的包名被人占用了，换个名字吧
 
 4. 在你的电脑上，直接`npm install 你的包名`，来看看你的包是否发布成功了。当然，也可以在[https://www.npmjs.com](https://www.npmjs.com)这里查找你发布的包
 
 5. 如果你要更新你的npm包，记得修改package.json的版本号，而且一般比上一个版本要高一点，否则会报错
 
-
-参考文件： 
-[如何自己写一个公用的NPM包](http://blog.csdn.net/A41202197514/article/details/76736776) 
-[从零开始教你写一个NPM包](https://segmentfault.com/a/1190000011095467) 
-[手把手教你用npm发布一个包](https://www.jianshu.com/p/36d3e0e00157) 
 
