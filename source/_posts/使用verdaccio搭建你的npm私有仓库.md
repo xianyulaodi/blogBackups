@@ -7,40 +7,48 @@ toc: true
 ---
 
 ## 背景： 
- 有时候dxx
-
-<!-- more-->
+ 
+ 有些时候，我们的一些npm包不想被外部的人访问，所以此时就需要一个npm私有仓库。本文主要记录一下使用verdaccio搭建npm私有仓库的一个过程
 
 [verdaccio的官网](http://www.verdaccio.org)
 
-1. 搭建的步骤如下
-
-全局安装： `npm install --g verdaccio`
-
-安装完运行命令： `verdaccio`
-
-会看到显示
-```javascript
-warn --- config file  - /home/.config/verdaccio/config.yaml 
-warn --- http address - http://localhost:4873/ - verdaccio/3.0.0
-```
-说明运行成功了，其中
-第一条warn是 verdaccio的配置文件存在的位置，在你本机上，则显示存在你电脑上的路径，里面可以设置很多东西，如：包存储的位置，最大用户数，是否允许所有用户使用等等
-
-第二条warn是 访问的地址，在浏览器打开`http://localhost:4873/`,会看到一个类似于http://wwww.npmjs.com 的界面
-
-2. 发布包
-新开一个命令窗口，输入`npm adduser --registry http://localhost:4873`,新增用户名，输入用户名，密码，邮箱
-输入完，输入`npm whoam i`,如果显示的是你的用户名，则说明登录成功了
+<!-- more-->
 
 
-在你需要发布的包文件夹下，执行`npm publish --registry http://localhost:4873`,即可发布成功。
+## 1. 搭建的步骤如下
 
-这时刷新一下 `http://localhost:4873/` 这个页面，即可看到你发布的包
+* 1.安装verdaccio： `npm install -g verdaccio`
+
+* 2.启动verdaccio: `verdaccio`
+
+    显示界面如下：
+    ```javascript
+    warn --- config file  - /home/.config/verdaccio/config.yaml 
+    warn --- http address - http://localhost:4873/ - verdaccio/3.0.0
+    ```
+    配置文件位置:`warn --- config file  - /home/.config/verdaccio/config.yaml` 
+
+    访问地址:`warn --- http address - http://localhost:4873/ - verdaccio/3.0.0` 
+
+* 3.注册一个用户
+`npm adduser --registry http://localhost:4873`
+输入用户名，密码，邮箱完成注册。注册完，输入`npm whoam i`,如果显示的是你的用户名，则说明登录成功了
 
 
+* 4.发布一个npm包
+执行`npm publish --registry http://localhost:4873`,即可发布成功。
 
-3. 一些设置
+
+## 2. 私有npm包的使用
+
+1. 设置镜像为你的npm包地址，如：`npm set registry http://localhost:4873`
+
+2. 正常安全其他npm包一样安装，如果在你私有npm仓库有你需要的包，则会去你仓库那里下载，否则到npm公共镜像查找
+
+  注意点： 设置镜像为你的npm私有包后，每次安装npm包，都会在你服务器上备份一份，下次你再次安装的时候，会读取服务器缓存的部分，安装速度会快很多。但也带来了缺点，就是这些包都在你服务器上存储了一份，占内存。如果其他公共的npm包不想存储在服务器，可以将镜像切换回默认的 `npm config set registry http://registry.npmjs.org`
+  
+
+## 3. 一些配置
 
 配置文件都是在 config.yaml 上修改，也就是第一个warn输出的那个路径
 
@@ -62,14 +70,7 @@ web:
 
 具体的配置情况可以看这里 [http://www.verdaccio.org/docs/en/configuration.html](http://www.verdaccio.org/docs/en/configuration.html)
 
-4. 如何使用你的私有npm包
 
-在你的电脑上配置： `npm set registry http://localhost:4873` 设置镜像为本地镜像,npm 进行安装操作时会先对本地进行查找，没有找到的会去npm公共镜像查找。
-
-
-如果需要修改为原来的镜像： npm config set registry http://registry.npmjs.org 
-
-然后跟正常安装其他安装包一样使用即可，它会先查找你电脑上有没有这个包，如果有，则用你电脑上的，否则，会去 npmjs.com上去查找
 
 
 ngrok 学习
@@ -86,3 +87,6 @@ http://music.163.com/#/artist?id=13193
 
 
 npm adduser --registry http://localhost:4873
+
+
+http://www.bubuko.com/infodetail-2388324.html
