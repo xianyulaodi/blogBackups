@@ -11,7 +11,7 @@ toc: true
 
 <!-- more-->
 
-## 正确解决方法
+## 1. 正确解决方法
 
 其实是因为阿里云的宿主机环境中，你要访问的端口没有被添加到安全组中。
 
@@ -34,9 +34,15 @@ toc: true
 优先级：1-100，数值越小，优先级越高。
 
 
-## centos7防火墙
+## 2. centos7防火墙
 
-centos7的防火墙是 firewall,而不是iptables，网上有很多乱七八糟的教程叫个禁掉 firewall,改用iptables,不要去改，否则会越改越烂。在centos7中，防火墙咋就用 firewall
+centos7的防火墙是 firewall,而不是iptables，网上有很多乱七八糟的教程叫个禁掉 firewall,改用iptables,不要去改，否则会越改越烂。在centos7中，防火墙咋就用 firewall。
+
+在第一步完成之后，在服务器那里配置一下你需要开放的端口，比如我要开放8080端口，执行如下命令
+
+`firewall-cmd --zone=dmz --add-port=8080/tcp`
+
+
 
 centos7防火墙的一些使用方法如下：
 
