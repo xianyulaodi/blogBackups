@@ -50,7 +50,8 @@ toc: true
 
 ## 3. 一些配置
 
-配置文件都是在 config.yaml 上修改，也就是第一个warn输出的那个路径
+配置文件为 config.yaml，也就是第一个warn输出的那个路径
+
 
 设置首页logo，title
 ```javascript
@@ -63,30 +64,14 @@ web:
 设置端口：
 `listen: xxx`
 
-如果要部署到服务器上，listen需要这样写
-`listen: 0.0.0.0:4873`,端口可以改为你开放的端口
+部署到服务器上，listen要这样写：
+`listen: 0.0.0.0:4873`
 
 ...
 
-具体的配置情况可以看这里 [http://www.verdaccio.org/docs/en/configuration.html](http://www.verdaccio.org/docs/en/configuration.html)
+如果需要使用pm2来守护进程，执行 
+```javascript
+pm2 start `which verdaccio`
+```
 
-
-
-
-ngrok 学习
-
-先找到verdaccio在哪里，执行`which verdaccio`
-
-pm2 start /root/.nvm/versions/node/v8.9.4/bin/verdaccio
-
-https://medium.com/strapi/testing-your-npm-package-before-releasing-it-using-verdaccio-ngrok-28e2832c850a
-
-http://www.verdaccio.org/docs/en/iss-server.html
-
-http://music.163.com/#/artist?id=13193
-
-
-npm adduser --registry http://localhost:4873
-
-
-http://www.bubuko.com/infodetail-2388324.html
+更多配置可以看  [这里](http://www.verdaccio.org/docs/en/configuration.html)

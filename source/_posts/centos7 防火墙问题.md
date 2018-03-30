@@ -24,45 +24,42 @@ toc: true
 
 3. 点进去，【配置规则】=> 【添加安全组规则】，设置规则如下：
 
-网络类型：选择内网
-规则方向：入方向
-授权策略：允许
-协议类型：自定义tcp
-端口范围：比如你想开放 3000端口，则输入 3000/3000
-授权类型：地址段访问 
-授权对象：0.0.0.0/0
-优先级：1-100，数值越小，优先级越高。
+    网络类型：选择内网
+    规则方向：入方向
+    授权策略：允许
+    协议类型：自定义tcp
+    端口范围：比如你想开放 3000端口，则输入 3000/3000
+    授权类型：地址段访问 
+    授权对象：0.0.0.0/0
+    优先级：1-100，数值越小，优先级越高。
+
+4. 完成以上步骤之后，在服务器配置你需要开放的端口，比如我要开放8080端口，执行：
+`firewall-cmd --zone=dmz --add-port=8080/tcp`
 
 
 ## 2. centos7防火墙
 
-centos7的防火墙是 firewall,而不是iptables，网上有很多乱七八糟的教程叫个禁掉 firewall,改用iptables,不要去改，否则会越改越烂。在centos7中，防火墙咋就用 firewall。
+  centos7的防火墙是 firewall,而不是iptables，网上有很多乱七八糟的教程叫个禁掉 firewall,改用iptables,不要去改，否则会越改越烂。在centos7中，防火墙咋就用 firewall。
+    
+  centos7防火墙的一些使用方法如下：
 
-在第一步完成之后，在服务器那里配置一下你需要开放的端口，比如我要开放8080端口，执行如下命令
-
-`firewall-cmd --zone=dmz --add-port=8080/tcp`
-
-
-
-centos7防火墙的一些使用方法如下：
-
-* 检查防火墙状态:
+1. 检查防火墙状态:
 `firewall-cmd --state`
 `firewall-cmd --list-all`
 
-* 停用:
+2. 停用:
 `systemctl stop firewalld`
 
-* 开启:
+3. 开启:
 `systemctl start firewalld`
 
-* 更新防火墙:
+4. 更新防火墙:
 `firewall-cmd --reload`
 
-* 在开机时启用一个服务:
+5. 在开机时启用一个服务:
 `systemctl enable firewalld.service`
 
-* 在开机时禁用一个服务:
+6. 在开机时禁用一个服务:
 `systemctl disable firewalld.service`
 
 
